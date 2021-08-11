@@ -28,7 +28,7 @@ def delete_book(id):
 @books_blueprint.route('/books/new')
 def new_book():
     books = book_repository.select_all()
-    return render_template('books/new.html', books=books)
+    return render_template('books/new.html', all_books=books)
 
 
 # CREATE
@@ -41,11 +41,11 @@ def add_book():
     author = author_repository.select(author_id)
     book = Book(title, genre, publisher, author)
     book_repository.save(book)
-    return redirect('/tasks')
+    return redirect('/books')
 
 
 # SHOW
-
+@books_blueprint.route('/books/<id>')
 
 
 ##### ADVANCED EXTENSION #####
