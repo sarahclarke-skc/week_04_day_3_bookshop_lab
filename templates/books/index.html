@@ -3,11 +3,11 @@
 
 
 <p>All books</p>
+<hr>
 {% for book in books %}
-<p>{{book.title}}</p>
-<p>{{book.genre}}</p>
-<p>{{book.publisher}}</p>
-<p>{{book.author.full_name()}}</p>
+<p>Title: {{ book.title }} Genre: {{ book.genre }} Publisher:{{ book.publisher }} Author: {{ book.author.full_name() }}</p>
+
+<form class = "delete-book" action="/books/{{book.id}}/delete" method='post'><button type="delete-book" class="delete-book">Delete</button></form>
 {% endfor %}
 
 {% endblock %}
